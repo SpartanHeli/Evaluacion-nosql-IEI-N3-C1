@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Cuentas Bancarias</title>
+
+    <link href="./css/brite.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet"
+        href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
+
+    <script src="./js/indexcuentas.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">App NoSql</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarColor01">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./form.html">
+                            Formulario Registro
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./formCB.html">
+                            Formulario Cuenta Bancaria
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./indexCuenta.html">
+                            Listado de Cuentas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <h3 class="mb-4">
+            Cuentas Bancarias Registradas
+        </h3>
+
+        <table id="tablaCuentas"
+            class="table table-striped table-hover">
+
+            <thead>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>RUT</th>
+                    <th>Banco</th>
+                    <th>Tipo</th>
+                    <th>N° Cuenta</th>
+                    <th>Moneda</th>
+                    <th>Saldo</th>
+                    <th>Estado</th>
+                    <th>Sucursal</th>
+                    <th>Titular</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
