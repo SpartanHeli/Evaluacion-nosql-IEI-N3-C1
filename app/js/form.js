@@ -1,6 +1,9 @@
 window.onload = function () {
     cargarPaises();
 };
+window.onload = function () {
+    cargarComunas();
+};
 
 function validarFormulario() {
     let inputNombre = document.getElementById('inputNombre');
@@ -8,7 +11,7 @@ function validarFormulario() {
     let inputEmail = document.getElementById('inputEmail');
     let inputContrasena = document.getElementById('password');
     let inputRepetirContrasena = document.getElementById('passwordRepetir');
-    let inputComuna = document.getElementById('inputComuna');
+    let inputComuna = document.getElementById('selectComuna');
     let inputCalle = document.getElementById('inputCalle');
     let formularioValido = true;
 
@@ -151,6 +154,23 @@ async function cargarPaises() {
             const opcion = document.createElement('option');
             opcion.value = pais.iso2;
             opcion.textContent = pais.nameES;
+            select.appendChild(opcion);
+        })
+    } catch (error) {
+        console.log('Ha ocurrido un error al cargar los datos: ', error);
+    }
+};
+
+async function cargarComunas() {
+    try {
+        const response = await fetch('http://localhost:3000/obtenerComunas');
+        const comunas = await response.json();
+
+        const select = document.getElementById('selectComuna');
+        comunas.forEach(comuna => {
+            const opcion = document.createElement('option');
+            opcion.value = comuna.nombre_comuna;
+            opcion.textContent = comuna.nombre_comuna;
             select.appendChild(opcion);
         })
     } catch (error) {

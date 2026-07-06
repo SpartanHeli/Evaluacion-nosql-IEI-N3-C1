@@ -26,6 +26,15 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
+const comuna = new mongoose.Schema(
+    {
+        codigo_comuna: String,
+        nombre_comuna: String,
+        nombre_provincia: String,
+        nombre_region: String      
+    }
+);
+
 const direccion = new mongoose.Schema({
     comuna: String,
     calle: String,
@@ -38,10 +47,16 @@ const usuario = new mongoose.Schema({
     nombre: String,
     rut: String,
     email: String,
+    telefono: String,
     genero: String,
     fechaNacimiento: Date,
     contrasena: String,
     nacionalidad: String,
+    genero: {
+        type: String,
+        enum: ['Masculino', 'Femenino', 'Otros'],
+        default: 'Otros'
+    },
     habilitado: {
         type: Boolean,
         default: true
@@ -85,6 +100,8 @@ const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
 const Pais = mongoose.model('Pais', pais, 'paises');
 
 const CuentaBancariaModel = mongoose.model('CuentaBancaria', CuentaBancaria, 'cuentas_bancarias');
+
+const Comuna = mongoose.model('Comuna', comuna, 'comunas');
 
 // Crear el ENDPOINT para recibir los datos de usuario
 app.post('/guardarUsuario', async (req, res) => {
@@ -182,6 +199,16 @@ app.get('/obtenerPaises', async (req, res) => {
         // Obtenemos una lista de paises desde DB
         const paises = await Pais.find();
         res.status(200).json(paises);
+    } catch (err) {
+        res.status(500).json({ message: 'Error al obtener los datos: ', err });
+    }
+});
+
+app.get('/obtenerComunas', async (req, res) => {
+    try {
+        // Obtenemos una lista de comunas desde DB
+        const comunas = await Comuna.find();
+        res.status(200).json(comunas);
     } catch (err) {
         res.status(500).json({ message: 'Error al obtener los datos: ', err });
     }

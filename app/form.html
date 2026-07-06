@@ -171,14 +171,15 @@
 
         <div class="row">
           <div class="col">
-            <label for="inputComuna" class="form-label">Comuna:</label>
-            <input
-              type="text"
+            <label for="selectComuna" class="form-label">Comuna:</label>
+            <select
               name="comuna"
-              id="inputComuna"
-              class="form-control"
+              id="selectComuna"
+              class="form-select"
               onchange="validarInput(this)"
-            />
+            >
+          <option value="" selected>Seleccione su comuna</option>
+          </select>
           </div>
 
           <div class="col">
